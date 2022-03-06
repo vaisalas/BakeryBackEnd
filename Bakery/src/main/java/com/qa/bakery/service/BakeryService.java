@@ -1,39 +1,52 @@
 package com.qa.bakery.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.qa.bakery.domain.Bakery;
+import com.qa.bakery.repo.BakeryRepo;
 
 @Service
 public class BakeryService {
 
-	private List<Bakery> bakery = new ArrayList<>();
+	private BakeryRepo repo;
+
+	@Autowired
+	public BakeryService(BakeryRepo repo) {
+		super();
+		this.repo = repo;
+	}
 
 	public Bakery createBakery(Bakery b) {
-		this.bakery.add(b);
-		Bakery created = this.bakery.get(this.bakery.size() - 1);
+		Bakery created = this.repo.save(b);
 		return created;
 	}
 
 	public List<Bakery> getAllBakery() {
-		return this.bakery;
+		return this.repo.findAll();
 	}
 
 	public Bakery getBakery(Integer id) {
-		return this.bakery.get(id);
+		Optional<Bakery> found = this.repo.findById(id);
+		return found.get();
 	}
 
 	public Bakery replaceBakery(Integer id, Bakery newBakery) {
-		Bakery body = this.bakery.set(id, newBakery);
-		return body;
+		Bakery existing = this.repo.findById(id).get();
+
+		existing.setName(newBakery.getName());
+		existing.setIsvegan(newBakery.getIsvegan());
+		existing.setProduct(newBakery.getProduct());
+		Bakery updated = this.repo.save(existing);
+		return updated;
 	}
 
 	public void removeBakery(@PathVariable Integer id) {
-		this.bakery.remove(id.intValue());
+		this.repo.deleteById(id);
 	}
 
 }
