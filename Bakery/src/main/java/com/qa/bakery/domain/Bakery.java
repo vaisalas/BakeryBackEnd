@@ -60,9 +60,5 @@ public class Bakery {
 		this.product = product;
 	}
 
-	@Override
-	public String toString() {
-		return "Bakery [id=" + id + ", name=" + name + ", isvegan=" + isvegan + ", Product=" + product + "]";
-	}
 
 }
