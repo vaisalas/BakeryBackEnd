@@ -35,6 +35,21 @@ public class BakeryService {
 		return found.get();
 	}
 
+	public List<Bakery> getBakeryByName(String name) {
+		List<Bakery> found = this.repo.findByNameIgnoreCase(name);
+		return found;
+	}
+
+	public List<Bakery> getBakeryByProduct(String product) {
+		List<Bakery> found = this.repo.findByProductIgnoreCase(product);
+		return found;
+	}
+
+	public List<Bakery> getBakeryByIsvegan(Boolean bool) {
+		List<Bakery> found = this.repo.findByIsvegan(bool);
+		return found;
+	}
+
 	public Bakery replaceBakery(Integer id, Bakery newBakery) {
 		Bakery existing = this.repo.findById(id).get();
 

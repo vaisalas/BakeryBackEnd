@@ -41,9 +41,27 @@ public class BakeryController {
 		return ResponseEntity.ok(this.service.getAllBakery());
 	}
 
-	@GetMapping("/get/{id}") 
+	@GetMapping("/get/{id}")
 	public Bakery getBakery(@PathVariable Integer id) {
 		return this.service.getBakery(id);
+	}
+
+	@GetMapping("/getByName/{name}")
+	public ResponseEntity<List<Bakery>> getBakeryByName(@PathVariable String name) {
+		List<Bakery> found = this.service.getBakeryByName(name);
+		return ResponseEntity.ok(found);
+	}
+
+	@GetMapping("/getByProduct/{product}")
+	public ResponseEntity<List<Bakery>> getBakeryByProduct(@PathVariable String product) {
+		List<Bakery> found = this.service.getBakeryByProduct(product);
+		return ResponseEntity.ok(found);
+	}
+
+	@GetMapping("/getByIsvegan/{bool}")
+	public ResponseEntity<List<Bakery>> getBakeryByIsvegan(@PathVariable Boolean bool) {
+		List<Bakery> found = this.service.getBakeryByIsvegan(bool);
+		return ResponseEntity.ok(found);
 	}
 
 	@PutMapping("/replace/{id}")
@@ -53,7 +71,7 @@ public class BakeryController {
 		return response;
 	}
 
-	@DeleteMapping("/remove/{id}") 
+	@DeleteMapping("/remove/{id}")
 	public ResponseEntity<?> removeBakery(@PathVariable Integer id) {
 		this.service.removeBakery(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
