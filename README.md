@@ -24,7 +24,7 @@ I created the project with 3 epics, this allowed me to work sepearetly on my Fro
 
 ### Version Control
 I made 2 repository on Github, one for Backend and one for [FrontEnd](https://github.com/vaisalas/BakeryFrontEnd). I used Feature branch model for both repository, only merging it to dev branch. the Final merge to my main is at the end of the project once I have verfied it all.
-(git)
+![GIT](https://github.com/vaisalas/BakeryBackEnd/blob/main/Documentation/Git.png)
 
 ### Database
 The two database which was used for this project were H2 and MySQL. The H2 database was used for testing the Spring API, MySQL relatonal database was the main database used for storing persistent data from the application.
