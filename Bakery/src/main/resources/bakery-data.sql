@@ -1,3 +1,3 @@
 
-insert into bakery (isvegan, name, product) values (FALSE,'Bienenstich','Torte');
-insert into bakery (isvegan, name, product) values (TRUE, 'Croissant', 'Pastries');
+insert into bakery (dietary, name, product) values ('none','Bienenstich','Torte');
+insert into bakery (dietary, name, product) values ('vegan', 'Croissant', 'Pastries');

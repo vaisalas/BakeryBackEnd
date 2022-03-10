@@ -40,12 +40,12 @@ public class BakeryControllerIntegrationTest {
 
 	@Test
 	void testCreate() throws Exception {
-		Bakery testBakery = new Bakery(null, "Bienenstich", false, "Torte");
+		Bakery testBakery = new Bakery(null, "Bienenstich", "none", "Torte");
 		String testBakerynAsJSON = this.mapper.writeValueAsString(testBakery);
 
 		RequestBuilder req = post("/create").contentType(MediaType.APPLICATION_JSON).content(testBakerynAsJSON);
 
-		Bakery testCreatedBakery = new Bakery(3, "Bienenstich", false, "Torte");
+		Bakery testCreatedBakery = new Bakery(3, "Bienenstich", "none", "Torte");
 		String testCreatedBakeryAsJSON = this.mapper.writeValueAsString(testCreatedBakery);
 
 		ResultMatcher checkStatus = status().isCreated();
@@ -57,7 +57,7 @@ public class BakeryControllerIntegrationTest {
 	@Test
 	void getAllTest() throws Exception {
 		RequestBuilder req = get("/getAll");
-		List<Bakery> testBakery = List.of(new Bakery(1, "Bienenstich", false, "Torte"), new Bakery(2, "Croissant", true, "Pastries"));
+		List<Bakery> testBakery = List.of(new Bakery(1, "Bienenstich", "none", "Torte"), new Bakery(2, "Croissant", "vegan", "Pastries"));
         String json = this.mapper.writeValueAsString(testBakery);
         ResultMatcher checkStatus = status().isOk();
         ResultMatcher checkBody = content().json(json);
@@ -67,7 +67,7 @@ public class BakeryControllerIntegrationTest {
 
 	@Test
 	void testGet() throws Exception {
-		Bakery savedBakery = new Bakery(1, "Bienenstich", false, "Torte");
+		Bakery savedBakery = new Bakery(1, "Bienenstich", "none", "Torte");
 		String savedBakeryAsJSON = this.mapper.writeValueAsString(savedBakery);
 
 		RequestBuilder req = get("/get/" + savedBakery.getId()).contentType(MediaType.APPLICATION_JSON);
@@ -81,7 +81,7 @@ public class BakeryControllerIntegrationTest {
 	@Test
 	void getByNameTest() throws Exception {
 		RequestBuilder req = get("/getByName/Bienenstich");
-		List<Bakery> testBakery = List.of(new Bakery(1, "Bienenstich", false, "Torte"));
+		List<Bakery> testBakery = List.of(new Bakery(1, "Bienenstich", "none", "Torte"));
 		String json = this.mapper.writeValueAsString(testBakery);
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkBody = content().json(json);
@@ -92,7 +92,7 @@ public class BakeryControllerIntegrationTest {
 	@Test
 	void getByProductTest() throws Exception {
 		RequestBuilder req = get("/getByProduct/Torte");
-		List<Bakery> testBakery = List.of(new Bakery(1, "Bienenstich", false, "Torte"));
+		List<Bakery> testBakery = List.of(new Bakery(1, "Bienenstich", "none", "Torte"));
 		String json = this.mapper.writeValueAsString(testBakery);
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkBody = content().json(json);
@@ -101,9 +101,9 @@ public class BakeryControllerIntegrationTest {
 	}
 	
 	@Test
-	void getByIsveganTest() throws Exception {
-		RequestBuilder req = get("/getByIsvegan/false");
-		List<Bakery> testBakery = List.of(new Bakery(1, "Bienenstich", false, "Torte"));
+	void getByDietaryTest() throws Exception {
+		RequestBuilder req = get("/getByDietary/none");
+		List<Bakery> testBakery = List.of(new Bakery(1, "Bienenstich", "none", "Torte"));
 		String json = this.mapper.writeValueAsString(testBakery);
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkBody = content().json(json);
@@ -114,11 +114,11 @@ public class BakeryControllerIntegrationTest {
 
 	@Test
 	void testReplace() throws Exception {
-		Bakery testBakery = new Bakery(null, "Bienenstich", false, "Torte");
+		Bakery testBakery = new Bakery(null, "Bienenstich", "none", "Torte");
 		String testBakeryAsJson = this.mapper.writeValueAsString(testBakery);
 		RequestBuilder req = put("/replace/1").contentType(MediaType.APPLICATION_JSON).content(testBakeryAsJson);
 
-		Bakery testCreatedBakery = new Bakery(1, "Bienenstich", false, "Torte");
+		Bakery testCreatedBakery = new Bakery(1, "Bienenstich", "none", "Torte");
 		String testCreatedBakeryAsJSON = this.mapper.writeValueAsString(testCreatedBakery);
 		ResultMatcher checkStatus = status().isAccepted();
 		ResultMatcher checkBody = content().json(testCreatedBakeryAsJSON);

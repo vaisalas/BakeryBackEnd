@@ -45,8 +45,8 @@ public class BakeryService {
 		return found;
 	}
 
-	public List<Bakery> getBakeryByIsvegan(Boolean bool) {
-		List<Bakery> found = this.repo.findByIsvegan(bool);
+	public List<Bakery> getBakeryByDietary(String dietary) {
+		List<Bakery> found = this.repo.findByDietaryIgnoreCase(dietary);
 		return found;
 	}
 
@@ -54,7 +54,7 @@ public class BakeryService {
 		Bakery existing = this.repo.findById(id).get();
 
 		existing.setName(newBakery.getName());
-		existing.setIsvegan(newBakery.getIsvegan());
+		existing.setDietary(newBakery.getDietary());
 		existing.setProduct(newBakery.getProduct());
 		Bakery updated = this.repo.save(existing);
 		return updated;

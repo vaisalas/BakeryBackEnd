@@ -13,18 +13,18 @@ public class Bakery {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	private Boolean isvegan;
+	private String dietary;
 	private String product;
 
 	public Bakery() {
 		super();
 	}
 
-	public Bakery(Integer id, String name, Boolean isvegan, String product) {
+	public Bakery(Integer id, String name, String dietary, String product) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.isvegan = isvegan;
+		this.dietary = dietary;
 		this.product = product;
 	}
 
@@ -44,12 +44,12 @@ public class Bakery {
 		this.name = name;
 	}
 
-	public Boolean getIsvegan() {
-		return isvegan;
+	public String getDietary() {
+		return dietary;
 	}
 
-	public void setIsvegan(Boolean isvegan) {
-		this.isvegan = isvegan;
+	public void setDietary(String dietary) {
+		this.dietary = dietary;
 	}
 
 	public String getProduct() {
@@ -59,6 +59,7 @@ public class Bakery {
 	public void setProduct(String product) {
 		this.product = product;
 	}
+
 
 
 }

@@ -61,9 +61,9 @@ public class BakeryController {
 		return ResponseEntity.ok(found);
 	}
 
-	@GetMapping("/getByIsvegan/{bool}")
-	public ResponseEntity<List<Bakery>> getBakeryByIsvegan(@PathVariable Boolean bool) {
-		List<Bakery> found = this.service.getBakeryByIsvegan(bool);
+	@GetMapping("/getByDietary/{dietary}")
+	public ResponseEntity<List<Bakery>> getBakeryByDietary(@PathVariable String dietary) {
+		List<Bakery> found = this.service.getBakeryByDietary(dietary);
 		return ResponseEntity.ok(found);
 	}
 

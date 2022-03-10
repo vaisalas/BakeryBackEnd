@@ -14,6 +14,6 @@ public interface BakeryRepo extends JpaRepository<Bakery, Integer> {
 
 	List<Bakery> findByProductIgnoreCase(String product);
 
-	List<Bakery> findByIsvegan(Boolean bool);
+	List<Bakery> findByDietaryIgnoreCase(String dietary);
 
 }
