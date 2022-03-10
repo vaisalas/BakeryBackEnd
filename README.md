@@ -45,7 +45,8 @@ For Testing I wrote Integration test using JUnit to test all the method in my Co
 
 ## Frontend
 
-
+The front-end was built with HYML and Javascript. As a user you should be able to add a bakery item to the database. Read the whole database. Edit and delete a bakery item by its ID number
+![FrontEnd](https://github.com/vaisalas/BakeryBackEnd/blob/Feature4-Documentation-and-ReadMe/Documentation/Frontend.png)
 
 
 
