@@ -2,7 +2,7 @@ Coverage: 97%
 # Bakery-List Project
 ## Backend
 
-[FrontEnd](https://github.com/vaisalas/BakeryFront-End) repository.
+[FrontEnd](https://github.com/vaisalas/BakeryFrontEnd) repository.
 
 ### Introduction 
 
@@ -23,7 +23,7 @@ I created the project with 3 epics, this allowed me to work sepearetly on my Fro
 ![Jira Backlog](https://github.com/vaisalas/BakeryBackEnd/blob/Feature4-Documentation-and-ReadMe/Documentation/Jira.png)
 
 ### Version Control
-I made 2 repository on Github, one for Backend and one for [FrontEnd](https://github.com/vaisalas/BakeryFront-End). I used Feature branch model for both repository, only merging it to dev branch. the Final merge to my main is at the end of the project once I have verfied it all.
+I made 2 repository on Github, one for Backend and one for [FrontEnd](https://github.com/vaisalas/BakeryFrontEnd). I used Feature branch model for both repository, only merging it to dev branch. the Final merge to my main is at the end of the project once I have verfied it all.
 (git)
 
 ### Database
